@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Mentoring.CheckoutApp
+namespace CheckoutApp
 {
     internal class Program
     {
