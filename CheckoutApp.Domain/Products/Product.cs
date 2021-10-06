@@ -4,15 +4,22 @@ namespace CheckoutApp.Domain.Products
 {
     public class Product
     {
-        public Product(string sku)
+        private Product(string sku)
         {
             Sku = sku ?? throw new ArgumentNullException(nameof(sku));
         }
 
-        public string Sku 
+        public static Product Create(string sku)
         {
-            get; private set;    
+            var newProduct = new Product(sku);
+            newProduct.Id = Guid.NewGuid();
+            return newProduct;
         }
+
+        public string Sku { get; }
+
+        public Guid Id { get; private set; }
+        
 
     }
 }

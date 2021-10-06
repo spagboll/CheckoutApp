@@ -15,24 +15,52 @@ namespace CheckoutApp.Domain.Tests
         [Test]
         public void Can_Create_Product()
         {
-            var sut = new Product("sku"); 
+            var fixture = new TestFixture();
+            var sut = fixture.BuildSut();
             sut.Should().NotBeNull();
         }
 
         [Test]
         public void Can_Get_Sku()
         {
-            var sut = new Product("sku");
-            sut.Sku.Should().BeEquivalentTo("sku");
+            var sut = new TestFixture()
+                .WithSku("cheese")
+                .BuildSut();
+            
+            sut.Sku.Should().BeEquivalentTo("cheese");
         }
 
         [Test]
         public void SKU_Should_Not_Be_Null()
         {
-            Action act = () => new Product(null);
+            var fixture = new TestFixture()
+                .WithSku(null);
+
+            Action act = () => fixture.BuildSut();
             
             act.Should().Throw<ArgumentNullException>()
                 .And.ParamName.Should().Be("sku");
+        }
+
+        private class TestFixture
+        {
+            public TestFixture()
+            {
+                this.Sku = Guid.NewGuid().ToString();
+            }
+
+            public string Sku { get; set; }
+
+            public Product BuildSut()
+            {
+                return Product.Create(this.Sku);
+            }
+
+            public TestFixture WithSku(string sku)
+            {
+                this.Sku = sku;
+                return this;
+            }
         }
     }
 }

@@ -20,6 +20,7 @@ namespace CheckoutApp.Domain.BaseTypes
             }
 
             var valueObj = (T)other;
+
             return GetEqualityComponents().SequenceEqual(valueObj.GetEqualityComponents());
         }
 
@@ -37,6 +38,7 @@ namespace CheckoutApp.Domain.BaseTypes
             {
                 hashCode = HashCode.Combine(hashCode, item.GetHashCode());
             }
+
             return hashCode;
         }
 
@@ -44,7 +46,5 @@ namespace CheckoutApp.Domain.BaseTypes
         {
             return base.ToString();
         }
-
-
     }
 }

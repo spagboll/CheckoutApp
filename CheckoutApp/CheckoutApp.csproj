@@ -5,4 +5,15 @@
     <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.2.0" />
+    <PackageReference Include="MediatR" Version="9.0.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CheckoutApp.Application\CheckoutApp.Application.csproj" />
+    <ProjectReference Include="..\CheckoutApp.Persistence\CheckoutApp.Persistence.csproj" />
+  </ItemGroup>
+
 </Project>
