@@ -11,4 +11,8 @@
     <PackageReference Include="MediatR.Extensions.Autofac.DependencyInjection" Version="7.3.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CheckoutApp.Domain\CheckoutApp.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -18,7 +18,9 @@ namespace CheckoutApp.Persistence
             _products = new List<Product>
             {
                 Product.Create("BISCUIT"),
-                Product.Create("CHEESE")
+                Product.Create("CHEESE"), 
+                Product.Create("GRAPES"),
+                Product.Create("bananas"),
             };
         }
         
